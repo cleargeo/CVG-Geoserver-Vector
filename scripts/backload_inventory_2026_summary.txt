@@ -1,0 +1,31 @@
+﻿CVG GeoServer Backload Inventory -- Summary
+Year: Z:\2026  |  Generated: 2026-03-22 02:20:36
+==========================================================================
+SCOPE: ALL CVG geospatial project types -- not just SLR/storm surge
+
+TOTALS
+  Total Geospatial Files : 0
+  Vector Files           : 0
+  Raster Files           : 0
+  ArcGIS .aprx           : 0
+  GDB Directories        : 0   <- PRIMARY VECTOR/RASTER SOURCE
+
+EXTENSIONS FOUND
+
+
+PROJECT TYPES (auto-classified -- verify manually)
+
+
+TOP PROJECTS BY FILE COUNT
+
+
+GDB DIRECTORIES (run ogrinfo -al -so on each to list feature classes)
+
+
+NEXT STEPS
+  1. For each GDB above:
+       ogrinfo -al -so "Z:\2026\{project}\Aprx\{name}.gdb"
+  2. Fill in CSV: CVG_TypeCode, ProjectSlug, GeoServerLayer
+  3. Run: bash backload_gpkg_convert.sh 2026
+  4. Run: bash backload_cog_convert.sh 2026
+  5. Run: bash backload_publish_vector.sh 2026

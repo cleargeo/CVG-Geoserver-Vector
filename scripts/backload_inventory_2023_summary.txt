@@ -1,0 +1,77 @@
+﻿CVG GeoServer Backload Inventory -- Summary
+Year: Z:\2023  |  Generated: 2026-03-22 02:21:00
+==========================================================================
+SCOPE: ALL CVG geospatial project types -- not just SLR/storm surge
+
+TOTALS
+  Total Geospatial Files : 767
+  Vector Files           : 340
+  Raster Files           : 327
+  ArcGIS .aprx           : 100
+  GDB Directories        : 0   <- PRIMARY VECTOR/RASTER SOURCE
+
+EXTENSIONS FOUND
+  .shp             307 files
+  .tif             273 files
+  .vrt              50 files
+  .aprx             47 files
+  .atbx             41 files
+  .csv              13 files
+  .kmz              13 files
+  .lyrx             11 files
+  .kml               5 files
+  .jp2               2 files
+  .json              2 files
+  .tiff              1 files
+  .mxd               1 files
+  .sid               1 files
+
+PROJECT TYPES (auto-classified -- verify manually)
+  unknown                  548 files
+  surge                     57 files
+  slr                       38 files
+  dem_ortho                 36 files
+  municipal                 27 files
+  wetland                   13 files
+  coastal                    8 files
+  duediligence               7 files
+  habitat                    7 files
+  fire                       5 files
+  flood                      4 files
+  vuln                       4 files
+  vegetation                 3 files
+  treesurvey                 3 files
+  gpssurvey                  3 files
+  stormwater                 2 files
+  mitigation                 2 files
+
+TOP PROJECTS BY FILE COUNT
+  2311 Arcadis                                         532 files
+  2329 WGuzman                                         114 files
+  2316 VFlaherty                                        31 files
+  2312 CFernandez                                       19 files
+  2334 DDeen                                            12 files
+  2314 DHague                                           12 files
+  2322 GMorello                                          8 files
+  2308 SWoolley                                          8 files
+  2327 RJones                                            5 files
+  2324 CBlack                                            4 files
+  2331 MWest                                             3 files
+  2325 Treasure Coast RPC                                3 files
+  2303 DTorres                                           3 files
+  2306 SMcIntosh                                         3 files
+  2320 ARuppel                                           3 files
+  2310 CHaas                                             3 files
+  2313 BBlissett                                         2 files
+  2304 JBurkhardt                                        2 files
+
+GDB DIRECTORIES (run ogrinfo -al -so on each to list feature classes)
+
+
+NEXT STEPS
+  1. For each GDB above:
+       ogrinfo -al -so "Z:\2023\{project}\Aprx\{name}.gdb"
+  2. Fill in CSV: CVG_TypeCode, ProjectSlug, GeoServerLayer
+  3. Run: bash backload_gpkg_convert.sh 2023
+  4. Run: bash backload_cog_convert.sh 2023
+  5. Run: bash backload_publish_vector.sh 2023

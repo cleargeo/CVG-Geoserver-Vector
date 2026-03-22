@@ -1,0 +1,66 @@
+﻿CVG GeoServer Backload Inventory -- Summary
+Year: Z:\2025  |  Generated: 2026-03-22 02:20:43
+==========================================================================
+SCOPE: ALL CVG geospatial project types -- not just SLR/storm surge
+
+TOTALS
+  Total Geospatial Files : 2015
+  Vector Files           : 308
+  Raster Files           : 1654
+  ArcGIS .aprx           : 53
+  GDB Directories        : 0   <- PRIMARY VECTOR/RASTER SOURCE
+
+EXTENSIONS FOUND
+  .sid            1487 files
+  .csv             134 files
+  .tif             133 files
+  .shp              95 files
+  .json             74 files
+  .vrt              34 files
+  .atbx             19 files
+  .aprx             18 files
+  .lyrx             16 files
+  .geojson           3 files
+  .kmz               1 files
+  .kml               1 files
+
+PROJECT TYPES (auto-classified -- verify manually)
+  unknown                 1584 files
+  municipal                336 files
+  wetland                   33 files
+  duediligence              28 files
+  flood                     11 files
+  planning                   7 files
+  gpssurvey                  5 files
+  aquatic                    2 files
+  vegetation                 2 files
+  stormwater                 2 files
+  fire                       2 files
+  surge                      2 files
+  habitat                    1 files
+
+TOP PROJECTS BY FILE COUNT
+  2517 Marine Science Center                          1513 files
+  2520 City of Palatka                                 342 files
+  2539 JMcVey                                           75 files
+  2540 ACastaneda_CJR Concrete Inc                      35 files
+  2511A Barnes County Road 3 Wetland Delineation        14 files
+  2536 _ Wetland Delineation                             8 files
+  2507 Seagate Due Diligence                             8 files
+  2516A Vargas Due Diligence                             8 files
+  2515A Old New York Rd (Wilton) Wetland Deliniation     4 files
+  2505 Seebeck WD                                        3 files
+  2N02LF~7                                               2 files
+  2538 SentinelDisasterResponse                          2 files
+  2525 Sugarmill HOA                                     1 files
+
+GDB DIRECTORIES (run ogrinfo -al -so on each to list feature classes)
+
+
+NEXT STEPS
+  1. For each GDB above:
+       ogrinfo -al -so "Z:\2025\{project}\Aprx\{name}.gdb"
+  2. Fill in CSV: CVG_TypeCode, ProjectSlug, GeoServerLayer
+  3. Run: bash backload_gpkg_convert.sh 2025
+  4. Run: bash backload_cog_convert.sh 2025
+  5. Run: bash backload_publish_vector.sh 2025

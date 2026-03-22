@@ -1,0 +1,242 @@
+# =============================================================================
+# CVG GeoServer Vector — Production Stack
+# (c) Clearview Geographic, LLC — Proprietary
+# =============================================================================
+# Deploys on VM 455 (cvg-geoserver-vector-01): vector.cleargeo.tech
+# Host IP: 10.10.10.204 | Public via FortiGate VIP: 131.148.52.235 (dedicated)
+#   OR via VM451 Caddy (.231) — see deploy_production.sh --target vm451
+#
+# Run:    docker compose -f docker-compose.prod.yml up -d --build
+# Update: docker compose -f docker-compose.prod.yml build && \
+#         docker compose -f docker-compose.prod.yml up -d
+# Logs:   docker compose -f docker-compose.prod.yml logs -f geoserver-vector
+#
+# DNS A record required (dedicated VM route):
+#   vector  IN  A  <dedicated-public-ip>  →  GeoServer @ VM455:8080
+# DNS A record for VM451 route:
+#   vector  IN  A  131.148.52.231          →  VM451 Caddy → geoserver-vector:8080
+# =============================================================================
+
+x-restart: &restart
+  restart: unless-stopped
+
+x-labels-gsv: &labels-gsv
+  com.cvg.org:        "Clearview Geographic LLC"
+  com.cvg.maintainer: "Alex Zelenski, GISP <azelenski@clearviewgeographic.com>"
+  com.cvg.service:    "geoserver-vector"
+  com.cvg.domain:     "cleargeo.tech"
+  com.cvg.tier:       "application"
+  com.cvg.host:       "cvg-geoserver-vector-01"
+  com.cvg.host.ip:    "10.10.10.204"
+  com.cvg.url:        "https://vector.cleargeo.tech"
+
+services:
+
+  # ── GeoServer Vector (Jetty embedded) ─────────────────────────────────────
+  geoserver-vector:
+    <<: *restart
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cvg/geoserver-vector:latest
+    container_name: geoserver-vector
+    expose:
+      - "8080"
+    volumes:
+      - geoserver-data:/opt/geoserver/data_dir
+      - geoserver-gwc:/opt/geowebcache_data
+      - /var/log/geoserver:/var/log/geoserver
+      - /mnt/cgps:/mnt/cgps:ro          # TrueNAS CGPS — vector datasets (shapefiles, GPKG)
+      - /mnt/cgdp:/mnt/cgdp:ro          # TrueNAS CGDP — processed vector output
+      # Control-flow plugin config — limits concurrent OWS requests (circuit breaker)
+      # Requires control-flow extension plugin (installed in Dockerfile)
+      - ./scripts/controlflow.properties:/opt/geoserver/data_dir/controlflow.properties:ro
+    environment:
+      - GEOSERVER_DATA_DIR=/opt/geoserver/data_dir
+      - GEOWEBCACHE_CACHE_DIR=/opt/geowebcache_data
+      - PROXY_BASE_URL=https://vector.cleargeo.tech/geoserver
+      - GEOSERVER_CSRF_WHITELIST=vector.cleargeo.tech
+      # Only WARN/ERROR output in prod — cuts log I/O significantly vs. INFO/DEBUG
+      - GEOSERVER_LOG_PROFILE=PRODUCTION_LOGGING
+      # JVM: UseContainerSupport respects the mem_limit set below.
+      # At 12g limit → heap = ~8.4g (70%). Adjust mem_limit to scale.
+      - JAVA_OPTS=-server
+          -XX:+UseContainerSupport
+          -XX:MaxRAMPercentage=70.0
+          -XX:InitialRAMPercentage=20.0
+          -XX:+UseG1GC
+          -XX:MaxGCPauseMillis=100
+          -XX:G1HeapRegionSize=4m
+          -XX:+ParallelRefProcEnabled
+          -XX:+ExplicitGCInvokesConcurrent
+          -XX:ParallelGCThreads=2
+          -XX:ConcGCThreads=1
+          -XX:+UseStringDeduplication
+          -XX:+OptimizeStringConcat
+          -Djava.awt.headless=true
+          -Djava.security.egd=file:/dev/./urandom
+          -Djava.net.preferIPv4Stack=true
+          -Dfile.encoding=UTF-8
+          -Djavax.servlet.request.encoding=UTF-8
+          -Djavax.servlet.response.encoding=UTF-8
+          -DALLOW_ENV_PARAMETRIZATION=true
+          -Dorg.geoserver.htmlui.timeout=60
+          -Dorg.geotools.shapefile.dbf.useMmap=true
+          -Dorg.eclipse.jetty.server.Request.maxFormContentSize=20971520
+          -Dorg.geotools.referencing.forceXY=true
+          -XX:+AlwaysPreTouch
+          -XX:+PerfDisableSharedMem
+          -Dlog4j2.formatMsgNoLookups=true
+          -Dnetworkaddress.cache.ttl=60
+          -Dorg.geotools.jdbc.DBCPStatements=true
+    # Resource limits — VM455: 16GB RAM, 4 vCPUs; OS overhead ~1.5GB → 12g for GeoServer
+    mem_limit: 12g
+    mem_reservation: 6g           # soft guarantee; allows burst to 12g under load
+    memswap_limit: 12g            # no swap (prevents GC thrashing on large WFS responses)
+    cpus: "4.0"
+    pids_limit: 300               # guard against thread-pool runaway
+    shm_size: 256m                # shared memory for JAI/ImageIO tile cache
+    security_opt:
+      - no-new-privileges:true   # prevent setuid privilege escalation
+    ulimits:
+      nofile:
+        soft: 32768
+        hard: 32768               # WFS streaming opens many file handles for large datasets
+    stop_grace_period: 45s        # allow in-flight WFS requests to complete
+    logging:
+      driver: json-file
+      options:
+        max-size: "100m"
+        max-file: "5"
+        compress: "true"          # gzip-compress rotated logs to save VM disk space
+    healthcheck:
+      # Lightweight dispatcher ping — returns tiny HTML in <100ms vs ~300KB WFS XML
+      test: ["CMD", "curl", "-fsS", "--max-time", "10",
+             "http://localhost:8080/geoserver/ows"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 120s
+    labels:
+      <<: *labels-gsv
+      com.cvg.type:        "geoserver"
+      com.cvg.port:        "8080"
+      com.cvg.healthcheck: "/geoserver/ows"
+      com.cvg.description: "GeoServer 2.28.3 Vector — WFS, WMS, PostGIS, Shapefiles, GeoPackage, Vector Tiles"
+    networks:
+      - web
+      - internal
+
+  # ── Caddy (Reverse Proxy + TLS + Portal) ──────────────────────────────────
+  caddy:
+    <<: *restart
+    image: caddy:2-alpine
+    container_name: caddy-gsv
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"             # HTTP/3 (QUIC)
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./caddy/portal:/srv/portal:ro     # Proprietary data access portal
+      - caddy-data:/data
+      - caddy-config:/config
+      - /var/log/caddy:/var/log/caddy
+    depends_on:
+      geoserver-vector:
+        condition: service_healthy
+    mem_limit: 256m
+    mem_reservation: 64m
+    cpus: "1.0"
+    stop_grace_period: 10s
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE         # required to bind :80 + :443 as non-root
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+        compress: "true"
+    labels:
+      <<: *labels-gsv
+      com.cvg.service: "caddy"
+      com.cvg.tier:    "proxy"
+    networks:
+      - web
+
+  # ── GeoServer Init (one-shot — runs on first deploy only) ─────────────────
+  # Sets admin password, service metadata, and proxy URL via REST API.
+  # Runs after geoserver-vector is healthy; writes sentinel to skip re-runs.
+  # Usage:  docker compose -f docker-compose.prod.yml run --rm geoserver-init
+  # OR add to up command:  --profile init
+  geoserver-init:
+    image: curlimages/curl:latest
+    container_name: geoserver-vector-init
+    profiles: ["init"]          # Only runs when explicitly requested: --profile init
+    user: "0"                   # Run as root to write sentinel to geoserver-data volume
+    volumes:
+      - ./scripts/geoserver-init.sh:/scripts/geoserver-init.sh:ro
+      - geoserver-data:/opt/geoserver/data_dir
+    environment:
+      - GEOSERVER_URL=http://geoserver-vector:8080/geoserver
+      - GEOSERVER_ADMIN_USER=admin
+      - GEOSERVER_ADMIN_PASSWORD=${GEOSERVER_ADMIN_PASSWORD:-}
+      - PROXY_BASE_URL=https://vector.cleargeo.tech/geoserver
+      - SKIP_IF_DONE=true
+    entrypoint: ["/bin/sh", "/scripts/geoserver-init.sh"]
+    depends_on:
+      geoserver-vector:
+        condition: service_healthy
+    networks:
+      - internal
+
+  # ── Watchtower (nightly image pull + restart) ──────────────────────────────
+  watchtower:
+    <<: *restart
+    image: containrrr/watchtower:latest
+    container_name: watchtower-gsv
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=86400
+      - WATCHTOWER_INCLUDE_STOPPED=false
+      - WATCHTOWER_LABEL_ENABLE=false
+      - TZ=America/New_York
+      - DOCKER_API_VERSION=1.41          # Fix: watchtower client too old for Docker CE 29
+    mem_limit: 64m
+    cpus: "0.25"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "2"
+    labels:
+      <<: *labels-gsv
+      com.cvg.service: "watchtower"
+      com.cvg.tier:    "platform"
+    networks:
+      - internal
+
+networks:
+  web:
+    name: cvg-gsv-web
+    driver: bridge
+  internal:
+    name: cvg-gsv-internal
+    driver: bridge
+    internal: true
+
+volumes:
+  geoserver-data:
+    name: geoserver-vector-data       # GeoServer config, workspaces, styles — PERSIST
+  geoserver-gwc:
+    name: geoserver-vector-gwc        # GeoWebCache tile store (can be recreated)
+  caddy-data:
+    name: caddy-data-gsv              # TLS cert storage (PERSIST — avoid rate limits)
+  caddy-config:
+    name: caddy-config-gsv
