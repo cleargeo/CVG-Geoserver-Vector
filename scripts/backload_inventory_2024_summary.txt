@@ -1,5 +1,5 @@
 ﻿CVG GeoServer Backload Inventory -- Summary
-Year: Z:\2024  |  Generated: 2026-03-22 02:20:45
+Year: Z:\2024  |  Generated: 2026-03-22 02:22:32
 ==========================================================================
 SCOPE: ALL CVG geospatial project types -- not just SLR/storm surge
 
@@ -8,7 +8,7 @@ TOTALS
   Vector Files           : 4
   Raster Files           : 6
   ArcGIS .aprx           : 8
-  GDB Directories        : 0   <- PRIMARY VECTOR/RASTER SOURCE
+  GDB Directories        : 4   <- PRIMARY VECTOR/RASTER SOURCE
 
 EXTENSIONS FOUND
   .tif               6 files
@@ -31,7 +31,10 @@ TOP PROJECTS BY FILE COUNT
   2405 RescAlert                                         1 files
 
 GDB DIRECTORIES (run ogrinfo -al -so on each to list feature classes)
-
+  Z:\2024\2401 GFelix\Aprx\CG2401 Statistical Tree Survey\CG2401 Statistical Tree Survey.gdb
+  Z:\2024\2402 RLanda\Aprx\CG2402 Wetland Delineation\CG2402 Wetland Delineation.gdb
+  Z:\2024\2402 RLanda\Aprx\CG2402 Wetland Delineation\OHWL.gdb
+  Z:\2024\2413 CMurphy\Aprx\DeLand Tree Survey and Wetland Delineation\DeLand Tree Survey and Wetland Delineation.gdb
 
 NEXT STEPS
   1. For each GDB above:

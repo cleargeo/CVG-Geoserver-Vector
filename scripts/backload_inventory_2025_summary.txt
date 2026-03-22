@@ -1,5 +1,5 @@
 ﻿CVG GeoServer Backload Inventory -- Summary
-Year: Z:\2025  |  Generated: 2026-03-22 02:20:43
+Year: Z:\2025  |  Generated: 2026-03-22 02:22:15
 ==========================================================================
 SCOPE: ALL CVG geospatial project types -- not just SLR/storm surge
 
@@ -8,7 +8,7 @@ TOTALS
   Vector Files           : 308
   Raster Files           : 1654
   ArcGIS .aprx           : 53
-  GDB Directories        : 0   <- PRIMARY VECTOR/RASTER SOURCE
+  GDB Directories        : 47   <- PRIMARY VECTOR/RASTER SOURCE
 
 EXTENSIONS FOUND
   .sid            1487 files
@@ -55,7 +55,53 @@ TOP PROJECTS BY FILE COUNT
   2525 Sugarmill HOA                                     1 files
 
 GDB DIRECTORIES (run ogrinfo -al -so on each to list feature classes)
-
+  Z:\2025\2505 Seebeck WD\Seebeck Wetland\Seebeck Wetland.gdb
+  Z:\2025\2507 Seagate Due Diligence\2507 Seagate\2507 Seagate.gdb
+  Z:\2025\2507 Seagate Due Diligence\CLC_Raster\CLC_v3_8_Raster.gdb
+  Z:\2025\2511A Barnes County Road 3 Wetland Delineation\APRX\2511A_BarnesCountyRd_WD\2511A barnes county WD Points.gdb
+  Z:\2025\2511A Barnes County Road 3 Wetland Delineation\APRX\2511A_BarnesCountyRd_WD\2511A barnes county WD Points_1.gdb
+  Z:\2025\2511A Barnes County Road 3 Wetland Delineation\APRX\2511A_BarnesCountyRd_WD\2511A_BarnesCountyRd_WD.gdb
+  Z:\2025\2511A Barnes County Road 3 Wetland Delineation\CLC_FWC\CLC_Raster\CLC_v3_8_Raster.gdb
+  Z:\2025\2515A Old New York Rd (Wilton) Wetland Deliniation\2515A Old New York Rd (Wilton) Wetland Deliniation\2515A Old New York Rd (Wilton) Wetland Deliniation.gdb
+  Z:\2025\2515A Old New York Rd (Wilton) Wetland Deliniation\CLC\CLC_Raster\CLC_v3_8_Raster.gdb
+  Z:\2025\2516A Vargas Due Diligence\2516A Vargas Due Diligence\2516A Vargas Due Diligence.gdb
+  Z:\2025\2516A Vargas Due Diligence\2516A Vargas Due Diligence\CLC_Raster\CLC_v3_8_Raster.gdb
+  Z:\2025\2517 Marine Science Center\A_Educational Display\01_Data\Artifical_Reefs\Artifical_Reef_Locations.gdb
+  Z:\2025\2517 Marine Science Center\A_Educational Display\01_Data\Bathymetry\GEBCO_contours\GEBCO_contours_NCEI.gdb
+  Z:\2025\2517 Marine Science Center\A_Educational Display\02_GIS\Clip to shoreline.gdb
+  Z:\2025\2517 Marine Science Center\A_Educational Display\02_GIS\Display\Display.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Community and Cultural Facilities.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Critical Asset Inventory.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Education Facilities.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Emergency and Public Safety.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Government and Institutional.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Health and Human Services.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Infrastructure and Utilities.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Natural and Cultural.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Baseline_aprx\Baseline_aprx.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Baseline_aprx\Critical Community and Emergency.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Baseline_aprx\Critical Infrastructure.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Baseline_aprx\Natural and Cultural.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Baseline_aprx\Transportation.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\4_Baseline\Elevation\Elevation.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\5_Exposure\Palatka_VDatum\Palatka_VDatum.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\5_Exposure\Rainfall Modeling\Rainfall APRX\Rainfall APRX.gdb
+  Z:\2025\2520 City of Palatka\A 380 Vulnerability Assessment\7_Data Share\25PLN18 Task 1 - Critical Asset Inventory\Critical Asset Inventory GIS Data\Critical Asset Inventory.gdb
+  Z:\2025\2536 _ Wetland Delineation\A_Aclade Wetland Delineation\2_GIS\Aclalde_Wetland_Delineation\Acalade_Wetland_Delineation.gdb
+  Z:\2025\2536 _ Wetland Delineation\A_Aclade Wetland Delineation\2_GIS\Aclalde_Wetland_Delineation\Aclalde_Wetland_Delineation.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping_work.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping_work_20260201_201949.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping_work_20260201_202134.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping_work_20260201_202357.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping_work_20260201_235551.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping_work_20260201_235657.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping_work_20260201_235716.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping_work_20260201_235833.gdb
+  Z:\2025\2539 JMcVey\Volusia_SFH_Woodshop_Env_Stewardship_DD\Due Diligence Mapping_work_20260202_000034.gdb
+  Z:\2025\2540 ACastaneda_CJR Concrete Inc\A_BiologicalReview_Deland\SubjectParcel.gdb
+  Z:\2025\2540 ACastaneda_CJR Concrete Inc\A_BiologicalReview_Deland\Deliverables\PedestrianSurveyResults\8f6d6f5d-8fb0-4d0c-b637-4b616f42e7e3.gdb
+  Z:\2025\2N02LF~7\2518AFarmton\2518AFarmton.gdb
 
 NEXT STEPS
   1. For each GDB above:

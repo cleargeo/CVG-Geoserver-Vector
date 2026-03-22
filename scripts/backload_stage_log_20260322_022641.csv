@@ -1,0 +1,40 @@
+﻿Timestamp,Year,ProjectSlug,SourceGDB,DestPath,SizeMB,Status
+2026-03-22 02:26:43,2025,seebeck_wd,Seebeck Wetland.gdb,\\10.10.10.100\cgps\backload\2025\seebeck_wd\Seebeck Wetland.gdb,0.7,ok
+2026-03-22 02:26:49,2025,barnes_county_rd3_wd,2511A_BarnesCountyRd_WD.gdb,\\10.10.10.100\cgps\backload\2025\barnes_county_rd3_wd\2511A_BarnesCountyRd_WD.gdb,168.1,ok
+2026-03-22 02:26:50,2025,barnes_county_rd3_wd,2511A barnes county WD Points.gdb,\\10.10.10.100\cgps\backload\2025\barnes_county_rd3_wd\2511A barnes county WD Points.gdb,0.2,ok
+2026-03-22 02:26:57,2025,old_new_york_rd_wd,2515A Old New York Rd (Wilton) Wetland Deliniation.gdb,\\10.10.10.100\cgps\backload\2025\old_new_york_rd_wd\2515A Old New York Rd (Wilton) Wetland Deliniation.gdb,1204.9,ok
+2026-03-22 02:27:03,2025,aclade_wd,Acalade_Wetland_Delineation.gdb,\\10.10.10.100\cgps\backload\2025\aclade_wd\Acalade_Wetland_Delineation.gdb,2.9,ok
+2026-03-22 02:27:12,2025,palatka_va,Critical Asset Inventory.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Critical Asset Inventory.gdb,17.2,ok
+2026-03-22 02:27:13,2025,palatka_va,Community and Cultural Facilities.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Community and Cultural Facilities.gdb,0.3,ok
+2026-03-22 02:27:14,2025,palatka_va,Education Facilities.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Education Facilities.gdb,0.2,ok
+2026-03-22 02:27:15,2025,palatka_va,Emergency and Public Safety.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Emergency and Public Safety.gdb,0.2,ok
+2026-03-22 02:27:16,2025,palatka_va,Government and Institutional.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Government and Institutional.gdb,0.2,ok
+2026-03-22 02:27:17,2025,palatka_va,Health and Human Services.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Health and Human Services.gdb,0.2,ok
+2026-03-22 02:27:18,2025,palatka_va,Infrastructure and Utilities.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Infrastructure and Utilities.gdb,0.2,ok
+2026-03-22 02:27:21,2025,palatka_va,Natural and Cultural.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Natural and Cultural.gdb,2.2,ok
+2026-03-22 02:27:24,2025,palatka_va,Transportation.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Transportation.gdb,3.2,ok
+2026-03-22 02:27:27,2025,palatka_va,Palatka_VDatum.gdb,\\10.10.10.100\cgps\backload\2025\palatka_va\Palatka_VDatum.gdb,377.6,ok
+2026-03-22 02:27:28,2025,marine_science_center,Artifical_Reef_Locations.gdb,\\10.10.10.100\cgps\backload\2025\marine_science_center\Artifical_Reef_Locations.gdb,0.2,ok
+2026-03-22 02:27:31,2025,marine_science_center,GEBCO_contours_NCEI.gdb,\\10.10.10.100\cgps\backload\2025\marine_science_center\GEBCO_contours_NCEI.gdb,119.6,ok
+2026-03-22 02:27:46,2025,marine_science_center,Display.gdb,\\10.10.10.100\cgps\backload\2025\marine_science_center\Display.gdb,345.8,ok
+2026-03-22 02:27:47,2025,marine_science_center,Clip to shoreline.gdb,\\10.10.10.100\cgps\backload\2025\marine_science_center\Clip to shoreline.gdb,15.1,ok
+2026-03-22 02:27:51,2025,seagate_dd,2507 Seagate.gdb,\\10.10.10.100\cgps\backload\2025\seagate_dd\2507 Seagate.gdb,127.2,ok
+2026-03-22 02:28:00,2025,vargas_dd,2516A Vargas Due Diligence.gdb,\\10.10.10.100\cgps\backload\2025\vargas_dd\2516A Vargas Due Diligence.gdb,1472.6,ok
+2026-03-22 02:28:09,2025,jmcvey_dd,Due Diligence Mapping.gdb,\\10.10.10.100\cgps\backload\2025\jmcvey_dd\Due Diligence Mapping.gdb,60,ok
+2026-03-22 02:28:11,2025,cjr_concrete,SubjectParcel.gdb,\\10.10.10.100\cgps\backload\2025\cjr_concrete\SubjectParcel.gdb,0.3,ok
+2026-03-22 02:28:13,2024,gfelix_tree_survey,CG2401 Statistical Tree Survey.gdb,\\10.10.10.100\cgps\backload\2024\gfelix_tree_survey\CG2401 Statistical Tree Survey.gdb,1.6,ok
+2026-03-22 02:28:16,2024,rlanda_wd,CG2402 Wetland Delineation.gdb,\\10.10.10.100\cgps\backload\2024\rlanda_wd\CG2402 Wetland Delineation.gdb,109.8,ok
+2026-03-22 02:28:16,2024,rlanda_wd,OHWL.gdb,\\10.10.10.100\cgps\backload\2024\rlanda_wd\OHWL.gdb,0.2,ok
+2026-03-22 02:28:21,2024,cmurphy_deland,DeLand Tree Survey and Wetland Delineation.gdb,\\10.10.10.100\cgps\backload\2024\cmurphy_deland\DeLand Tree Survey and Wetland Delineation.gdb,456.1,ok
+2026-03-22 02:28:25,2023,tomahawk_trail_wd,Tomahawk Trail Wetland Delineation.gdb,\\10.10.10.100\cgps\backload\2023\tomahawk_trail_wd\Tomahawk Trail Wetland Delineation.gdb,48.5,ok
+2026-03-22 02:28:26,2023,damascus_rd_wd,Damascus Rd Wetland Delineation.gdb,\\10.10.10.100\cgps\backload\2023\damascus_rd_wd\Damascus Rd Wetland Delineation.gdb,0.2,ok
+2026-03-22 02:28:26,2023,blissett_wd,2313 Wetland and Wildlife Survey.gdb,\\10.10.10.100\cgps\backload\2023\blissett_wd\2313 Wetland and Wildlife Survey.gdb,0.2,ok
+2026-03-22 02:28:31,2023,dhague_wd,2314 Wetland Delineation.gdb,\\10.10.10.100\cgps\backload\2023\dhague_wd\2314 Wetland Delineation.gdb,115,ok
+2026-03-22 02:28:35,2023,linville_rd_wd,1869 Linville Road.gdb,\\10.10.10.100\cgps\backload\2023\linville_rd_wd\1869 Linville Road.gdb,21.7,ok
+2026-03-22 02:28:37,2023,shell_harbor_wd,Shell Harbor Rd.gdb,\\10.10.10.100\cgps\backload\2023\shell_harbor_wd\Shell Harbor Rd.gdb,13.7,ok
+2026-03-22 02:28:39,2023,blossom_rd_wd,Blossom Rd.gdb,\\10.10.10.100\cgps\backload\2023\blossom_rd_wd\Blossom Rd.gdb,22.9,ok
+2026-03-22 02:28:58,2023,6th_ave_wd,6th Ave.gdb,\\10.10.10.100\cgps\backload\2023\6th_ave_wd\6th Ave.gdb,2887.1,ok
+2026-03-22 02:29:24,2023,quail_nest_wd,CG2329 Wetland Delineation.gdb,\\10.10.10.100\cgps\backload\2023\quail_nest_wd\CG2329 Wetland Delineation.gdb,1187.7,ok
+2026-03-22 02:29:24,2023,crystal_view_wd,East Crystal View.gdb,\\10.10.10.100\cgps\backload\2023\crystal_view_wd\East Crystal View.gdb,0.2,ok
+2026-03-22 02:29:40,2023,ddeen_wd,CG2334 DDeen.gdb,\\10.10.10.100\cgps\backload\2023\ddeen_wd\CG2334 DDeen.gdb,1984.1,ok
+2026-03-22 02:29:49,2023,arcadis_ftl_va,Fort Lauderdale_Baseline Critical Asset Inventory.gdb,\\10.10.10.100\cgps\backload\2023\arcadis_ftl_va\Fort Lauderdale_Baseline Critical Asset Inventory.gdb,29,ok

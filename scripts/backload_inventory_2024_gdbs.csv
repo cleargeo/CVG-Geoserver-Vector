@@ -1,1 +1,5 @@
-﻿
+﻿"Year","ProjectFolder","GDB_Name","GDB_Path","ParentFolder","LastModified","Notes"
+"2024","2401 GFelix","CG2401 Statistical Tree Survey.gdb","Z:\2024\2401 GFelix\Aprx\CG2401 Statistical Tree Survey\CG2401 Statistical Tree Survey.gdb","Z:\2024\2401 GFelix\Aprx\CG2401 Statistical Tree Survey","2025-03-05","Run: ogrinfo -al -so on this GDB to list feature classes"
+"2024","2402 RLanda","CG2402 Wetland Delineation.gdb","Z:\2024\2402 RLanda\Aprx\CG2402 Wetland Delineation\CG2402 Wetland Delineation.gdb","Z:\2024\2402 RLanda\Aprx\CG2402 Wetland Delineation","2024-10-04","Run: ogrinfo -al -so on this GDB to list feature classes"
+"2024","2402 RLanda","OHWL.gdb","Z:\2024\2402 RLanda\Aprx\CG2402 Wetland Delineation\OHWL.gdb","Z:\2024\2402 RLanda\Aprx\CG2402 Wetland Delineation","2024-10-04","Run: ogrinfo -al -so on this GDB to list feature classes"
+"2024","2413 CMurphy","DeLand Tree Survey and Wetland Delineation.gdb","Z:\2024\2413 CMurphy\Aprx\DeLand Tree Survey and Wetland Delineation\DeLand Tree Survey and Wetland Delineation.gdb","Z:\2024\2413 CMurphy\Aprx\DeLand Tree Survey and Wetland Delineation","2024-11-08","Run: ogrinfo -al -so on this GDB to list feature classes"
