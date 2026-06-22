@@ -201,12 +201,11 @@ For live database-backed feature services (connects to CVG PostGIS server):
 
 ---
 
-## Related Projects
+## 🔗 Related Services
 
-| Project | Description |
+| Service | Description |
 |---------|-------------|
-| `CVG_Geoserver_Raster` | Sister raster WMS/WCS service (VM 454, raster.cleargeo.tech) |
-| `CVG_GeoServ_Processor` | Python pipeline: processes outputs → publishes to GeoServer |
+| `CVG_Neuron` | AI orchestration platform -- webhook receiver at port 8808 |
 | `CVG_Storm Surge Wizard` | Generates flood zone boundary vectors consumed by this service |
 | `CVG_SLR Wizard` | Generates SLR inundation boundary vectors consumed by this service |
 | `CVG_Rainfall Wizard` | Generates rainfall runoff boundary vectors consumed by this service |
